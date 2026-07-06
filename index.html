@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | Tên Thương Hiệu</title>
-  <meta name="description" content="Portfolio cá nhân — thiết kế tối giản, sang trọng." />
+  <title>Trang Đài Makeup | Đài Tibber</title>
+  <meta name="description" content="Trang Đài Makeup — trang điểm cô dâu, trang điểm tiệc & dạy makeup cá nhân bởi Đài Tibber." />
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -39,16 +38,9 @@
 
   <style>
     html { scroll-behavior: smooth; }
+    body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-    body {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Nav underline animation */
-    .nav-link {
-      position: relative;
-    }
+    .nav-link { position: relative; }
     .nav-link::after {
       content: '';
       position: absolute;
@@ -59,12 +51,8 @@
       background: #1A1A1A;
       transition: width 0.35s ease, left 0.35s ease;
     }
-    .nav-link:hover::after {
-      width: 100%;
-      left: 0;
-    }
+    .nav-link:hover::after { width: 100%; left: 0; }
 
-    /* Portfolio item fade */
     .portfolio-item {
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
@@ -82,38 +70,20 @@
       position: relative;
     }
 
-    /* Image zoom on hover */
     .img-zoom img {
       transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    .img-zoom:hover img {
-      transform: scale(1.06);
-    }
+    .img-zoom:hover img { transform: scale(1.06); }
 
-    /* Filter button active state */
     .filter-btn.active {
       color: #1A1A1A;
       border-color: #1A1A1A;
     }
-    .filter-btn.active::after {
-      width: 100%;
-    }
 
-    /* Mobile menu */
-    #mobile-menu {
-      transition: max-height 0.4s ease, opacity 0.35s ease;
-    }
-    #mobile-menu.closed {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-    }
-    #mobile-menu.open {
-      max-height: 480px;
-      opacity: 1;
-    }
+    #mobile-menu { transition: max-height 0.4s ease, opacity 0.35s ease; }
+    #mobile-menu.closed { max-height: 0; opacity: 0; overflow: hidden; }
+    #mobile-menu.open { max-height: 520px; opacity: 1; }
 
-    /* Dropdown */
     .dropdown-menu {
       opacity: 0;
       visibility: hidden;
@@ -127,74 +97,61 @@
       transform: translateY(0);
     }
 
-    /* Fade-in on scroll */
     .fade-in {
       opacity: 0;
       transform: translateY(24px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 
 <body class="bg-cream text-charcoal font-sans font-light antialiased">
 
-  <!-- ========== HEADER / NAVBAR ========== -->
+  <!-- HEADER -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-border/60 transition-shadow duration-300">
     <nav class="max-w-7xl mx-auto px-6 lg:px-10">
       <div class="flex items-center justify-between h-16 md:h-20">
 
-        <!-- Brand -->
-        <a href="#hero" class="font-sans text-sm md:text-base font-medium tracking-widest2 uppercase text-charcoal hover:opacity-70 transition-opacity">
-          Tên Thương Hiệu
+        <a href="#hero" class="flex items-center gap-3 hover:opacity-70 transition-opacity">
+          <img src="images/logo.svg" alt="" class="h-9 md:h-10 w-auto shrink-0" width="160" height="133" aria-hidden="true" />
+          <span class="font-sans text-sm md:text-base font-medium tracking-widest2 uppercase text-charcoal">Trang Đài Makeup</span>
         </a>
 
-        <!-- Desktop Nav -->
         <ul class="hidden md:flex items-center gap-8 lg:gap-12 text-xs tracking-widest2 uppercase">
-          <li>
-            <a href="#about" class="nav-link text-stone hover:text-charcoal transition-colors">About</a>
-          </li>
+          <li><a href="#about" class="nav-link text-stone hover:text-charcoal transition-colors">About</a></li>
           <li class="dropdown relative">
             <button class="nav-link text-stone hover:text-charcoal transition-colors flex items-center gap-1 cursor-pointer bg-transparent border-none font-sans text-xs tracking-widest2 uppercase">
               Portfolio
               <svg class="w-3 h-3 mt-px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
             </button>
-            <ul class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-white border border-border shadow-sm min-w-[180px] py-2">
+            <ul class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-white border border-border shadow-sm min-w-[220px] py-2">
               <li><a href="#portfolio" data-filter="all" class="portfolio-nav-filter block px-6 py-2.5 text-xs tracking-widest2 uppercase text-stone hover:text-charcoal hover:bg-ivory transition-colors">Tất cả</a></li>
-              <li><a href="#portfolio" data-filter="project-a" class="portfolio-nav-filter block px-6 py-2.5 text-xs tracking-widest2 uppercase text-stone hover:text-charcoal hover:bg-ivory transition-colors">Dự án A</a></li>
-              <li><a href="#portfolio" data-filter="project-b" class="portfolio-nav-filter block px-6 py-2.5 text-xs tracking-widest2 uppercase text-stone hover:text-charcoal hover:bg-ivory transition-colors">Dự án B</a></li>
-              <li><a href="#portfolio" data-filter="commercial" class="portfolio-nav-filter block px-6 py-2.5 text-xs tracking-widest2 uppercase text-stone hover:text-charcoal hover:bg-ivory transition-colors">Thương mại</a></li>
+              <li><a href="#portfolio" data-filter="co-dau" class="portfolio-nav-filter block px-6 py-2.5 text-xs tracking-widest2 uppercase text-stone hover:text-charcoal hover:bg-ivory transition-colors">Trang điểm cô dâu</a></li>
+              <li><a href="#portfolio" data-filter="tiec" class="portfolio-nav-filter block px-6 py-2.5 text-xs tracking-widest2 uppercase text-stone hover:text-charcoal hover:bg-ivory transition-colors">Trang điểm tiệc</a></li>
+              <li><a href="#portfolio" data-filter="day-makeup" class="portfolio-nav-filter block px-6 py-2.5 text-xs tracking-widest2 uppercase text-stone hover:text-charcoal hover:bg-ivory transition-colors">Dạy makeup cá nhân</a></li>
             </ul>
           </li>
-          <li>
-            <a href="#team" class="nav-link text-stone hover:text-charcoal transition-colors">Team</a>
-          </li>
-          <li>
-            <a href="#contact" class="nav-link text-stone hover:text-charcoal transition-colors">Contact</a>
-          </li>
+          <li><a href="#team" class="nav-link text-stone hover:text-charcoal transition-colors">Team</a></li>
+          <li><a href="#contact" class="nav-link text-stone hover:text-charcoal transition-colors">Contact</a></li>
         </ul>
 
-        <!-- Hamburger -->
         <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 group" aria-label="Mở menu" aria-expanded="false">
-          <span class="hamburger-line block w-6 h-px bg-charcoal transition-all duration-300 origin-center"></span>
-          <span class="hamburger-line block w-6 h-px bg-charcoal transition-all duration-300"></span>
-          <span class="hamburger-line block w-4 h-px bg-charcoal transition-all duration-300 self-end group-hover:w-6"></span>
+          <span class="block w-6 h-px bg-charcoal transition-all duration-300"></span>
+          <span class="block w-6 h-px bg-charcoal transition-all duration-300"></span>
+          <span class="block w-4 h-px bg-charcoal transition-all duration-300 self-end group-hover:w-6"></span>
         </button>
       </div>
 
-      <!-- Mobile Menu -->
       <div id="mobile-menu" class="closed md:hidden border-t border-border/60">
         <ul class="py-6 space-y-1 text-xs tracking-widest2 uppercase">
           <li><a href="#about" class="mobile-nav-link block py-3 text-stone hover:text-charcoal transition-colors">About</a></li>
           <li>
             <p class="py-2 text-muted text-[10px] tracking-widest2">Portfolio</p>
             <a href="#portfolio" data-filter="all" class="portfolio-nav-filter block py-2 pl-4 text-stone hover:text-charcoal">Tất cả</a>
-            <a href="#portfolio" data-filter="project-a" class="portfolio-nav-filter block py-2 pl-4 text-stone hover:text-charcoal">Dự án A</a>
-            <a href="#portfolio" data-filter="project-b" class="portfolio-nav-filter block py-2 pl-4 text-stone hover:text-charcoal">Dự án B</a>
-            <a href="#portfolio" data-filter="commercial" class="portfolio-nav-filter block py-2 pl-4 text-stone hover:text-charcoal">Thương mại</a>
+            <a href="#portfolio" data-filter="co-dau" class="portfolio-nav-filter block py-2 pl-4 text-stone hover:text-charcoal">Trang điểm cô dâu</a>
+            <a href="#portfolio" data-filter="tiec" class="portfolio-nav-filter block py-2 pl-4 text-stone hover:text-charcoal">Trang điểm tiệc</a>
+            <a href="#portfolio" data-filter="day-makeup" class="portfolio-nav-filter block py-2 pl-4 text-stone hover:text-charcoal">Dạy makeup cá nhân</a>
           </li>
           <li><a href="#team" class="mobile-nav-link block py-3 text-stone hover:text-charcoal transition-colors">Team</a></li>
           <li><a href="#contact" class="mobile-nav-link block py-3 text-stone hover:text-charcoal transition-colors">Contact</a></li>
@@ -205,27 +162,27 @@
 
   <main>
 
-    <!-- ========== HERO ========== -->
+    <!-- HERO -->
     <section id="hero" class="pt-16 md:pt-20 min-h-screen flex flex-col justify-center">
       <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-32 w-full">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div class="fade-in order-2 lg:order-1">
-            <p class="text-xs tracking-widest2 uppercase text-muted mb-6">Portfolio &amp; Creative Studio</p>
+            <p class="text-xs tracking-widest2 uppercase text-muted mb-6">Makeup Artist</p>
             <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-charcoal mb-8">
-              Nghệ thuật<br />
-              <em class="font-light italic">trong từng chi tiết</em>
+              Xin chào,<br />
+              <em class="font-light italic">mình là Đài Tibber</em>
             </h1>
             <p class="text-stone leading-relaxed max-w-md text-sm md:text-base">
-              Chào mừng bạn đến với không gian sáng tạo của chúng tôi — nơi mỗi dự án được chăm chút tỉ mỉ, mang đến trải nghiệm thẩm mỹ tinh tế và đầy cảm hứng.
+              Chào mừng bạn đến với <strong class="font-normal text-charcoal">Trang Đài Makeup</strong> — nơi mỗi nét cọ đều được chăm chút tỉ mỉ, để bạn tỏa sáng theo cách riêng của mình.
             </p>
             <a href="#portfolio" class="inline-block mt-10 text-xs tracking-widest2 uppercase border-b border-charcoal pb-1 hover:opacity-60 transition-opacity">
-              Khám phá Portfolio
+              Xem Portfolio
             </a>
           </div>
           <div class="fade-in order-1 lg:order-2 img-zoom overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80"
-              alt="Ảnh đại diện chính"
+              src="images/founder_1.jpg"
+              alt="Đài Tibber — Trang Đài Makeup"
               class="w-full aspect-[3/4] object-cover"
               loading="eager"
             />
@@ -234,43 +191,45 @@
       </div>
     </section>
 
-    <!-- ========== ABOUT ========== -->
+    <!-- ABOUT -->
     <section id="about" class="py-24 md:py-32 bg-ivory">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div class="lg:col-span-5 fade-in">
             <p class="text-xs tracking-widest2 uppercase text-muted mb-4">About</p>
             <h2 class="font-serif text-3xl md:text-4xl font-light text-charcoal leading-snug">
-              Về chúng tôi
+              Một chút về mình
             </h2>
           </div>
           <div class="lg:col-span-7 fade-in space-y-6">
             <p class="text-stone leading-loose text-sm md:text-base">
-              Chúng tôi là studio sáng tạo chuyên về nhiếp ảnh, thiết kế và nghệ thuật thị giác. Với triết lý "ít hơn là nhiều hơn", mỗi tác phẩm được tạo ra đều hướng đến sự thanh lịch, tinh tế và vượt thời gian.
+              Em là <strong class="font-normal text-charcoal">Đài Tibber</strong> — một cô gái đang dần viết nên câu chuyện makeup của riêng mình. Những ngày đầu cầm cọ, tim hơi run run một chút, nhưng đam mê thì chẳng hề giảm — mong tổ nghề phù hộ cho em nhé 🙇
             </p>
             <p class="text-stone leading-loose text-sm md:text-base">
-              Dù bạn đang chuẩn bị cho một sự kiện đặc biệt, buổi chụp hình chuyên nghiệp hay đơn giản là muốn lưu giữ khoảnh khắc đẹp nhất — chúng tôi luôn sẵn sàng nâng tầm trải nghiệm của bạn.
+              Em nhận <strong class="font-normal text-charcoal">trang điểm cô dâu</strong>, trang điểm biểu diễn, kỷ yếu, event, party… và cả các dịch vụ <strong class="font-normal text-charcoal">đến tận nhà</strong>: cưới hỏi, mẹ cô dâu, chú rể, khai giảng, bế giảng, văn nghệ — cứ là dịp nào cần xinh, cứ nhắn em!
             </p>
             <p class="text-stone leading-loose text-sm md:text-base">
-              Hãy cùng khám phá sức mạnh biến đổi của nghệ thuật sáng tạo chuyên nghiệp.
+              Ngoài ra, em còn mở lớp <strong class="font-normal text-charcoal">dạy makeup cá nhân</strong> cho các bạn muốn tự làm đẹp mỗi ngày — từ căn bản đến nâng cao, học vui, học nhẹ nhàng, không áp lực.
+            </p>
+            <p class="text-charcoal leading-loose text-sm md:text-base font-normal">
+              Booking: <a href="tel:+84357691591" class="border-b border-border hover:border-charcoal transition-colors">0357-691-591</a>
             </p>
           </div>
         </div>
 
-        <!-- About images -->
         <div class="grid md:grid-cols-2 gap-6 mt-20 fade-in">
           <div class="img-zoom overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800&q=80"
-              alt="Không gian làm việc"
+              src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80"
+              alt="Trang điểm cô dâu"
               class="w-full aspect-[4/5] object-cover"
               loading="lazy"
             />
           </div>
           <div class="img-zoom overflow-hidden md:mt-16">
             <img
-              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80"
-              alt="Chi tiết nghệ thuật"
+              src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&q=80"
+              alt="Dạy makeup cá nhân"
               class="w-full aspect-[4/5] object-cover"
               loading="lazy"
             />
@@ -279,11 +238,10 @@
       </div>
     </section>
 
-    <!-- ========== PORTFOLIO ========== -->
+    <!-- PORTFOLIO -->
     <section id="portfolio" class="py-24 md:py-32">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
-        <!-- Section header -->
         <div class="text-center mb-16 fade-in">
           <p class="text-xs tracking-widest2 uppercase text-muted mb-4">Portfolio</p>
           <h2 class="font-serif text-3xl md:text-4xl font-light text-charcoal">
@@ -291,158 +249,163 @@
           </h2>
         </div>
 
-        <!-- Filter buttons -->
         <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-14 fade-in" id="filter-bar">
           <button class="filter-btn active text-xs tracking-widest2 uppercase text-muted border-b border-transparent pb-1 hover:text-charcoal transition-colors cursor-pointer bg-transparent" data-filter="all">
             Tất cả
           </button>
-          <button class="filter-btn text-xs tracking-widest2 uppercase text-muted border-b border-transparent pb-1 hover:text-charcoal transition-colors cursor-pointer bg-transparent" data-filter="project-a">
-            Dự án A
+          <button class="filter-btn text-xs tracking-widest2 uppercase text-muted border-b border-transparent pb-1 hover:text-charcoal transition-colors cursor-pointer bg-transparent" data-filter="co-dau">
+            Trang điểm cô dâu
           </button>
-          <button class="filter-btn text-xs tracking-widest2 uppercase text-muted border-b border-transparent pb-1 hover:text-charcoal transition-colors cursor-pointer bg-transparent" data-filter="project-b">
-            Dự án B
+          <button class="filter-btn text-xs tracking-widest2 uppercase text-muted border-b border-transparent pb-1 hover:text-charcoal transition-colors cursor-pointer bg-transparent" data-filter="tiec">
+            Trang điểm tiệc
           </button>
-          <button class="filter-btn text-xs tracking-widest2 uppercase text-muted border-b border-transparent pb-1 hover:text-charcoal transition-colors cursor-pointer bg-transparent" data-filter="commercial">
-            Thương mại
+          <button class="filter-btn text-xs tracking-widest2 uppercase text-muted border-b border-transparent pb-1 hover:text-charcoal transition-colors cursor-pointer bg-transparent" data-filter="day-makeup">
+            Dạy makeup cá nhân
           </button>
         </div>
 
-        <!-- Portfolio Grid -->
         <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
 
-          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="project-a">
-            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80" alt="Dự án A — 01" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="co-dau">
+            <img src="images/codau_1.jpg" alt="Trang điểm cô dâu — 01" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="co-dau">
+            <img src="images/codau_2.jpg" alt="Trang điểm cô dâu — 02" class="w-full aspect-square object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="co-dau">
+            <img src="images/codau_3.jpg" alt="Trang điểm cô dâu — 03" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="co-dau">
+            <img src="images/codau_4.jpg" alt="Trang điểm cô dâu — 04" class="w-full aspect-square object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="co-dau">
+            <img src="images/codau_5.jpg" alt="Trang điểm cô dâu — 05" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="co-dau">
+            <img src="images/codau_6.jpg" alt="Trang điểm cô dâu — 06" class="w-full aspect-square object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="co-dau">
+            <img src="images/codau_7.jpg" alt="Trang điểm cô dâu — 07" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="co-dau">
+            <img src="images/codau_8.jpg" alt="Trang điểm cô dâu — 08" class="w-full aspect-square object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="co-dau">
+            <img src="images/codau_9.jpg" alt="Trang điểm cô dâu — 09" class="w-full aspect-[3/4] object-cover" loading="lazy" />
           </article>
 
-          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="commercial">
-            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80" alt="Thương mại — 01" class="w-full aspect-square object-cover" loading="lazy" />
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="tiec">
+            <img src="images/tiec_1.jpg" alt="Trang điểm tiệc — 01" class="w-full aspect-square object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="tiec">
+            <img src="images/tiec_2.jpg" alt="Trang điểm tiệc — 02" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="tiec">
+            <img src="images/tiec_3.jpg" alt="Trang điểm tiệc — 03" class="w-full aspect-square object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="tiec">
+            <img src="images/tiec_4.jpg" alt="Trang điểm tiệc — 04" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="tiec">
+            <img src="images/tiec_5.jpg" alt="Trang điểm tiệc — 05" class="w-full aspect-square object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="tiec">
+            <img src="images/tiec_6.jpg" alt="Trang điểm tiệc — 06" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="tiec">
+            <img src="images/tiec_7.jpg" alt="Trang điểm tiệc — 07" class="w-full aspect-square object-cover" loading="lazy" />
+          </article>
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="tiec">
+            <img src="images/tiec_8.jpg" alt="Trang điểm tiệc — 08" class="w-full aspect-[3/4] object-cover" loading="lazy" />
           </article>
 
-          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="project-b">
-            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80" alt="Dự án B — 01" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="day-makeup">
+            <img src="images/canhan_1.jpg" alt="Dạy makeup cá nhân — 01" class="w-full aspect-[3/4] object-cover" loading="lazy" />
           </article>
-
-          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="project-a">
-            <img src="https://images.unsplash.com/photo-1483985988355-763728e3685b?w=600&q=80" alt="Dự án A — 02" class="w-full aspect-square object-cover" loading="lazy" />
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="day-makeup">
+            <img src="images/canhan_2.jpg" alt="Dạy makeup cá nhân — 02" class="w-full aspect-square object-cover" loading="lazy" />
           </article>
-
-          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="commercial">
-            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80" alt="Thương mại — 02" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="day-makeup">
+            <img src="images/canhan_3.jpg" alt="Dạy makeup cá nhân — 03" class="w-full aspect-[3/4] object-cover" loading="lazy" />
           </article>
-
-          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="project-b">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80" alt="Dự án B — 02" class="w-full aspect-square object-cover" loading="lazy" />
-          </article>
-
-          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="project-a">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80" alt="Dự án A — 03" class="w-full aspect-[3/4] object-cover" loading="lazy" />
-          </article>
-
-          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="commercial">
-            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&q=80" alt="Thương mại — 03" class="w-full aspect-square object-cover" loading="lazy" />
-          </article>
-
-          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="project-b">
-            <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&q=80" alt="Dự án B — 03" class="w-full aspect-[3/4] object-cover" loading="lazy" />
-          </article>
-
-          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="project-a">
-            <img src="https://images.unsplash.com/photo-1525507119025-ed4c629a60a3?w=600&q=80" alt="Dự án A — 04" class="w-full aspect-square object-cover" loading="lazy" />
-          </article>
-
-          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="commercial">
-            <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&q=80" alt="Thương mại — 04" class="w-full aspect-[3/4] object-cover" loading="lazy" />
-          </article>
-
-          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="project-b">
-            <img src="https://images.unsplash.com/photo-1502716119720-b23a93ae5e1f?w=600&q=80" alt="Dự án B — 04" class="w-full aspect-square object-cover" loading="lazy" />
+          <article class="portfolio-item visible-item img-zoom overflow-hidden fade-in" data-category="day-makeup">
+            <img src="images/canhan_4.jpg" alt="Dạy makeup cá nhân — 04" class="w-full aspect-square object-cover" loading="lazy" />
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- ========== TEAM ========== -->
+    <!-- TEAM -->
     <section id="team" class="py-24 md:py-32 bg-ivory">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="text-center mb-16 fade-in">
           <p class="text-xs tracking-widest2 uppercase text-muted mb-4">Team</p>
           <h2 class="font-serif text-3xl md:text-4xl font-light text-charcoal">
-            Đội ngũ sáng tạo
+            Người sau cây cọ
           </h2>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14">
-          <div class="text-center fade-in">
-            <div class="img-zoom overflow-hidden mb-6 mx-auto max-w-xs">
-              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80" alt="Thành viên 1" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+        <div class="max-w-3xl mx-auto text-center fade-in">
+          <div class="grid grid-cols-3 gap-3 md:gap-4 mb-8">
+            <div class="img-zoom overflow-hidden">
+              <img src="images/founder_1.jpg" alt="Đài Tibber" class="w-full aspect-[3/4] object-cover" loading="lazy" />
             </div>
-            <h3 class="font-serif text-xl font-light text-charcoal">Nguyễn Văn A</h3>
-            <p class="text-xs tracking-widest2 uppercase text-muted mt-2">Founder &amp; Creative Director</p>
-          </div>
-          <div class="text-center fade-in">
-            <div class="img-zoom overflow-hidden mb-6 mx-auto max-w-xs">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Thành viên 2" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+            <div class="img-zoom overflow-hidden">
+              <img src="images/founder_2.jpg" alt="Đài Tibber" class="w-full aspect-[3/4] object-cover" loading="lazy" />
             </div>
-            <h3 class="font-serif text-xl font-light text-charcoal">Trần Thị B</h3>
-            <p class="text-xs tracking-widest2 uppercase text-muted mt-2">Lead Photographer</p>
-          </div>
-          <div class="text-center fade-in sm:col-span-2 lg:col-span-1 sm:max-w-xs sm:mx-auto lg:max-w-none">
-            <div class="img-zoom overflow-hidden mb-6 mx-auto max-w-xs">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80" alt="Thành viên 3" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+            <div class="img-zoom overflow-hidden">
+              <img src="images/founder_3.jpg" alt="Đài Tibber" class="w-full aspect-[3/4] object-cover" loading="lazy" />
             </div>
-            <h3 class="font-serif text-xl font-light text-charcoal">Lê Minh C</h3>
-            <p class="text-xs tracking-widest2 uppercase text-muted mt-2">Art Director</p>
           </div>
+          <h3 class="font-serif text-2xl font-light text-charcoal">Đài Tibber</h3>
+          <p class="text-xs tracking-widest2 uppercase text-muted mt-2">Founder &amp; Makeup Artist</p>
+          <p class="text-stone text-sm leading-relaxed mt-4">
+            Đài Artist — chuyên trang điểm cô dâu, tiệc &amp; dạy makeup cá nhân. Cần xinh là nhắn Đài nhé!
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- ========== CONTACT / FOOTER ========== -->
+    <!-- CONTACT / FOOTER -->
     <footer id="contact" class="py-24 md:py-32 border-t border-border">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
         <div class="grid md:grid-cols-2 gap-16 md:gap-20">
-          <!-- Contact info -->
           <div class="fade-in">
             <p class="text-xs tracking-widest2 uppercase text-muted mb-4">Contact</p>
             <h2 class="font-serif text-3xl md:text-4xl font-light text-charcoal mb-10">
-              Liên hệ với chúng tôi
+              Liên hệ với Đài
             </h2>
             <address class="not-italic space-y-4 text-stone text-sm md:text-base leading-relaxed">
-              <p>123 Đường ABC, Quận 1<br />Thành phố Hồ Chí Minh, Việt Nam</p>
+              <p>Phường An Khánh, TP Hồ Chí Minh<br /><span class="text-muted text-sm">(Quận 2 cũ)</span></p>
               <p>
-                <a href="tel:+84901234567" class="hover:text-charcoal transition-colors">+84 901 234 567</a>
+                <a href="tel:+84357691591" class="hover:text-charcoal transition-colors">0357-691-591</a>
               </p>
               <p>
-                <a href="mailto:hello@example.com" class="hover:text-charcoal transition-colors border-b border-border hover:border-charcoal transition-colors">hello@example.com</a>
+                <a href="mailto:daotrangdai281197@gmail.com" class="hover:text-charcoal transition-colors border-b border-border hover:border-charcoal transition-colors">daotrangdai281197@gmail.com</a>
               </p>
             </address>
           </div>
 
-          <!-- Social -->
           <div class="fade-in flex flex-col justify-end">
-            <p class="text-xs tracking-widest2 uppercase text-muted mb-6">Theo dõi chúng tôi</p>
+            <p class="text-xs tracking-widest2 uppercase text-muted mb-6">Theo dõi Đài</p>
             <div class="flex items-center gap-8">
-              <!-- Facebook -->
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-stone hover:text-charcoal transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/trangdai01657" target="_blank" rel="noopener noreferrer" class="text-stone hover:text-charcoal transition-colors" aria-label="Facebook">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               </a>
-              <!-- Instagram -->
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-stone hover:text-charcoal transition-colors" aria-label="Instagram">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-              </a>
-              <!-- TikTok -->
-              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="text-stone hover:text-charcoal transition-colors" aria-label="TikTok">
+              <a href="https://www.tiktok.com/@trangdai.tn" target="_blank" rel="noopener noreferrer" class="text-stone hover:text-charcoal transition-colors" aria-label="TikTok">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.77a4.85 4.85 0 01-1.01-.08z"/></svg>
               </a>
             </div>
+            <p class="text-muted text-xs mt-6 leading-relaxed">
+              Hãy inbox hoặc gọi trực tiếp để đặt lịch — Đài sẽ phản hồi sớm nhất có thể!
+            </p>
           </div>
         </div>
 
-        <!-- Copyright -->
         <div class="mt-20 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p class="text-xs text-muted tracking-wide">&copy; 2026 Tên Thương Hiệu. All rights reserved.</p>
+          <p class="text-xs text-muted tracking-wide">&copy; 2026 Trang Đài Makeup. All rights reserved.</p>
           <a href="#hero" class="text-xs tracking-widest2 uppercase text-muted hover:text-charcoal transition-colors">Back to top ↑</a>
         </div>
       </div>
@@ -450,33 +413,24 @@
 
   </main>
 
-  <!-- ========== JAVASCRIPT ========== -->
   <script>
     (function () {
       'use strict';
 
-      /* ---- Smooth scroll for anchor links ---- */
       document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
           var targetId = this.getAttribute('href');
           if (targetId === '#') return;
-
           var target = document.querySelector(targetId);
           if (!target) return;
-
           e.preventDefault();
-
           var headerHeight = document.getElementById('header').offsetHeight;
           var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
           window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-
-          // Close mobile menu after click
           closeMobileMenu();
         });
       });
 
-      /* ---- Mobile hamburger menu ---- */
       var menuToggle = document.getElementById('menu-toggle');
       var mobileMenu = document.getElementById('mobile-menu');
       var isMenuOpen = false;
@@ -503,35 +457,22 @@
         link.addEventListener('click', closeMobileMenu);
       });
 
-      /* ---- Header shadow on scroll ---- */
       var header = document.getElementById('header');
       window.addEventListener('scroll', function () {
-        if (window.scrollY > 20) {
-          header.classList.add('shadow-sm');
-        } else {
-          header.classList.remove('shadow-sm');
-        }
+        header.classList.toggle('shadow-sm', window.scrollY > 20);
       });
 
-      /* ---- Portfolio filter ---- */
       var filterButtons = document.querySelectorAll('.filter-btn');
       var portfolioItems = document.querySelectorAll('.portfolio-item');
       var portfolioNavFilters = document.querySelectorAll('.portfolio-nav-filter');
-      var currentFilter = 'all';
 
       function applyFilter(filter) {
-        currentFilter = filter;
-
-        // Update filter button states
         filterButtons.forEach(function (btn) {
           btn.classList.toggle('active', btn.dataset.filter === filter);
         });
 
-        // Show/hide portfolio items with staggered animation
         portfolioItems.forEach(function (item, index) {
-          var category = item.dataset.category;
-          var shouldShow = filter === 'all' || category === filter;
-
+          var shouldShow = filter === 'all' || item.dataset.category === filter;
           if (shouldShow) {
             item.classList.remove('hidden-item');
             item.classList.add('visible-item');
@@ -550,23 +491,17 @@
         });
       });
 
-      // Nav dropdown / mobile portfolio links also trigger filter
       portfolioNavFilters.forEach(function (link) {
         link.addEventListener('click', function () {
           var filter = this.dataset.filter;
           if (filter) {
-            // Small delay so scroll completes first
-            setTimeout(function () {
-              applyFilter(filter);
-            }, 400);
+            setTimeout(function () { applyFilter(filter); }, 400);
           }
           closeMobileMenu();
         });
       });
 
-      /* ---- Fade-in on scroll (Intersection Observer) ---- */
       var fadeElements = document.querySelectorAll('.fade-in');
-
       if ('IntersectionObserver' in window) {
         var fadeObserver = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
@@ -576,25 +511,16 @@
             }
           });
         }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-        fadeElements.forEach(function (el) {
-          fadeObserver.observe(el);
-        });
+        fadeElements.forEach(function (el) { fadeObserver.observe(el); });
       } else {
-        fadeElements.forEach(function (el) {
-          el.classList.add('visible');
-        });
+        fadeElements.forEach(function (el) { el.classList.add('visible'); });
       }
 
-      /* ---- Trigger hero fade-in immediately ---- */
       window.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('#hero .fade-in').forEach(function (el) {
-          setTimeout(function () {
-            el.classList.add('visible');
-          }, 200);
+          setTimeout(function () { el.classList.add('visible'); }, 200);
         });
       });
-
     })();
   </script>
 
